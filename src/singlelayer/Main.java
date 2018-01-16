@@ -7,9 +7,10 @@ public class Main {
     public static void main(String[] args) {
 
 //        firstInputTrue();
-        majority();
+//        majority();
 //        booleanAnd();
-//        booleanOr();
+        booleanOr();
+//        XOR();  //Single layer cannot do XOR.
     }
 
     private static void firstInputTrue() {
@@ -116,6 +117,29 @@ public class Main {
         desiredOutcomes1.add(1);
         desiredOutcomes1.add(1);
         desiredOutcomes1.add(0);
+
+        BinaryDecisionNeuralNet neuron = new BinaryDecisionNeuralNet(desiredOutcomes1, patterns);
+
+        neuron.learn();
+    }
+
+    private static void XOR() {
+        //True when either is true
+        ArrayList<Integer[]> patterns = new ArrayList<>();
+        Integer[] pattern1 = {1, 1, 1};
+        Integer[] pattern2 = {1, 1, 0};
+        Integer[] pattern3 = {1, 0, 1};
+        Integer[] pattern4 = {1, 0, 0};
+        patterns.add(pattern1);
+        patterns.add(pattern2);
+        patterns.add(pattern3);
+        patterns.add(pattern4);
+
+        ArrayList<Integer> desiredOutcomes1 = new ArrayList<>();
+        desiredOutcomes1.add(1);
+        desiredOutcomes1.add(0);
+        desiredOutcomes1.add(0);
+        desiredOutcomes1.add(1);
 
         BinaryDecisionNeuralNet neuron = new BinaryDecisionNeuralNet(desiredOutcomes1, patterns);
 
